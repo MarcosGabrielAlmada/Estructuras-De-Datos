@@ -1,18 +1,14 @@
 public class ConjuntoArreglo<E> implements Conjunto<E> {
     private E conjunto[];
+    private int cant;
 
     public ConjuntoArreglo(int i) {
         this.conjunto = (E[]) new Object[i];
+        this.cant = 0;
     }
 
     public int size() {
-        int cant = 0;
-        for (int i = 0; i < this.capacity(); i++) {
-            if (this.get(i) != null) {
-                cant++;
-            }
-        }
-        return cant;
+        return this.cant;
     }
 
     public int capacity() {
@@ -35,6 +31,7 @@ public class ConjuntoArreglo<E> implements Conjunto<E> {
                 agregado = true;
             }
         }
+        this.cant++;
     }
 
     public boolean pertenece(E elem) {
